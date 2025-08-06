@@ -20,7 +20,7 @@ typedef struct {
     float integral;
 
     float output_limit;       // Max output (e.g. 500.0)
-    float integral_limit;     // Max integral term (optional but recommended)
+    float integral_limit;     // Max integral term 
 } PID_Controller;
 
 /**
@@ -38,3 +38,4 @@ float PID_Compute(PID_Controller *pid, float setpoint, float measurement, float 
 
 
 #endif /* INC_ATTITUDE_PID_H_ */
+
