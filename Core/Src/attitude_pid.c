@@ -22,7 +22,7 @@ float PID_Compute(PID_Controller *pid, float setpoint, float measurement, float 
     float error = setpoint - measurement;
     pid->integral += error * dt;
 
-    // ✅ Integral windup protection
+    //  Integral windup protection
     if (pid->integral > pid->integral_limit) pid->integral = pid->integral_limit;
     else if (pid->integral < -pid->integral_limit) pid->integral = -pid->integral_limit;
 
@@ -31,11 +31,12 @@ float PID_Compute(PID_Controller *pid, float setpoint, float measurement, float 
 
     float output = (pid->Kp * error) + (pid->Ki * pid->integral) + (pid->Kd * derivative);
 
-    // ✅ Output clamp
+    //  Output clamp
     if (output > pid->output_limit) output = pid->output_limit;
     else if (output < -pid->output_limit) output = -pid->output_limit;
 
     return output;
 }
+
 
 
